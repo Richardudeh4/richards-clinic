@@ -22,6 +22,7 @@ import { useState } from "react";
 import { UserFormValidation } from "@/lib/validation";
 import { useRouter } from "next/navigation";
 import { createUser } from "@/lib/actions/patient.actions";
+import toast from "react-hot-toast";
 
 
 export enum FormFieldType{
@@ -59,6 +60,7 @@ export function PatientForm() {
       const newUser = await createUser(user);
 
      if(newUser) {
+      toast.success('Patient created 🙂')
       router.push(`/patients/${newUser.$id}/register`) 
     }
 }

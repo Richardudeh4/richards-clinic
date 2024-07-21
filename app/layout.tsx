@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
+import ToastProvider from "./provider/toast-provider";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], weight:["300","400","500","600","700"], variable: '--font-sans'});
 
@@ -22,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("min-h-screen bg-dark-300 font-sans antialiased text-white", jakarta.className)}>
+        <ToastProvider/>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
         {children}
         </ThemeProvider>
